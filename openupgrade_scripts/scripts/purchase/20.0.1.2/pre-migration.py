@@ -1,0 +1,13 @@
+# Copyright Odoo Community Association (OCA)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+from openupgradelib import openupgrade
+
+_renamed_fields = [
+    ("purchase.order.line", "purchase_order_line", "product_uom_id", "uom_id"),
+]
+
+
+@openupgrade.migrate()
+def migrate(env, version):
+    openupgrade.rename_fields(env, _renamed_fields)
